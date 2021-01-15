@@ -21,5 +21,5 @@
   "homepage": "https://github.com/sebipap/crypto-dolar-blue#readme",
   "engine":{
     "node": "10.19.0",
-    "npm": "6.14.4" 
+    "npm": "6.14.4" }
 }
