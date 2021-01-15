@@ -16,9 +16,9 @@ getExRates()
 app.use('/latest',express.static('latest.json'))
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static((path.join(path.dirname(__dirname), '/client/build'))))
+    app.use(express.static((path.join(path.dirname(__dirname), '/build'))))
     app.get('*', (req, res) =>{
-        res.sendFile (path.join(path.dirname(__dirname), '/client/build/index.html'))
+        res.sendFile (path.join(path.dirname(__dirname), '/build/index.html'))
     })
 }
 

@@ -1,27 +1,45 @@
 {
   "name": "crypto-dolar-blue",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.8",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.0",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
   "scripts": {
     "start": "cd backend && node index.js",
-    "heroku-postbuild": "npm i && (cd client && npm run build-client) && (cd backend && npm run build-server)"
+    "start-client": "react-scripts start",
+    "build-client": "react-scripts build",
+    "heroku-postbuild": "npm i && npm run build-client && (cd backend && npm run build-server)"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sebipap/crypto-dolar-blue.git"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sebipap/crypto-dolar-blue/issues"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "homepage": "https://github.com/sebipap/crypto-dolar-blue#readme",
+  "proxy": "http://localhost:5000",
   "engine": {
     "node": "10.19.0",
     "npm": "6.14.4"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0"
   }
 }
