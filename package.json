@@ -1,0 +1,19 @@
+{
+  "name": "crypto-dolar-blue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebipap/crypto-dolar-blue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebipap/crypto-dolar-blue/issues"
+  },
+  "homepage": "https://github.com/sebipap/crypto-dolar-blue#readme"
+}
