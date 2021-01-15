@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && npm run start",
-    "build": "npm i && (cd client && npm run build-client) && (cd backend && npm run build-server)"
+    "start": "cd backend && node index.js",
+    "heroku-postbuild": "npm i && (cd client && npm run build-client) && (cd backend && npm run build-server)"
   },
   "repository": {
     "type": "git",
