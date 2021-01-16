@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ER from './components/ER.js'
 import axios from 'axios'
+import Ticker from './components/Ticker'
 
 export default class App extends Component{
   constructor(){
@@ -38,15 +39,15 @@ export default class App extends Component{
     .catch( () => console.log("error"))
 
     this.updateCoins()
-    let seconds = 5
+    let seconds = 1
     let the_interval = seconds* 1000
     setInterval(this.updateCoins, the_interval)
 
 }
 
   updateCoins(){
-    this.updateBTC()
-    this.updateETH()
+    // this.updateBTC()
+    // this.updateETH()
   }
 
   updateBTC(){
@@ -136,6 +137,7 @@ export default class App extends Component{
                     <ER coin={this.state.ethusd}/>
                     <ER coin={this.state.usdtars}/>
                     <ER coin={this.state.btcars}/>
+                    <Ticker/>
                   </div>
                 </div>
 

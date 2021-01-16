@@ -13,11 +13,13 @@ export default class Ticker extends Component{
     }
 
     updatePrice(){
-        axios.get('https://www.bitstamp.net/api/v2/ticker/btcusd')
-        .then( res=> {
+
+        axios.get('https://www.bitstamp.net/api/v2/ticker/btcusd/')
+        .then( res => {
+            console.log(res.data)
             this.setState({
-                bid: res.data.bid,
-                ask: res.data.ask,
+                bid: res.data.USD.last,
+                ask: res.data.USD.last,
             })
         })
 
@@ -27,7 +29,7 @@ export default class Ticker extends Component{
     componentDidMount(){
 
         this.updatePrice()
-        let seconds = 1
+        let seconds = 3
         let the_interval = seconds* 1000
         setInterval(this.updatePrice, the_interval)
 
@@ -36,7 +38,7 @@ export default class Ticker extends Component{
     render(){
         return(
             <div className="er">
-                <h4 id="btcusd">Bitcoin T</h4>
+                <h4 id="btcusd">Bitcoin TT</h4>
                 Compra
                 <div className="bid">
                     <div className="currency">USD</div>
