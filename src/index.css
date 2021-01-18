@@ -122,3 +122,15 @@ border: 3px solid rgb(71, 71, 71);
 #usdarsofficial{
   color: rgb(119, 211, 0)
 }
+.calc{
+  background-color: #2c2c2c;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow:  0 0 20px 0px black;
+  border: 3px solid rgb(71, 71, 71);
+
+  border-radius: 25px;
+
+}

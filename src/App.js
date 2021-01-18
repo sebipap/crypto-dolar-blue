@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import ER from './components/ER.js'
 import axios from 'axios'
+import Calc from './components/Calc'
+
 
 export default class App extends Component{
   constructor(){
@@ -63,6 +65,7 @@ export default class App extends Component{
                     </div>
                   </div>
                 </div>
+
                 <div className="er-category">
                   <h2>COTIZACIONES DE CRIPTOMONEDAS</h2>
                   <div className="er-box">
@@ -74,9 +77,12 @@ export default class App extends Component{
                     </div>
                   </div>
                 </div>
-                <p style={{color: "white"}}>
-                  {JSON.stringify(this.state)}
-                </p>
+
+                <div className="er-category">
+                  <h2>CALCULADORA DE CAMBIOS</h2>
+                  <Calc ers={this.state} />
+                </div>
+
               </div>
             </div>
           </div>
