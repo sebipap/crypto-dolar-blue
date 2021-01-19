@@ -6,43 +6,65 @@ export default class Calc extends Component {
         this.state = {
             exRateType: "blue",
             currencyA: "",
-            valueA: 0,
+            valueA: "",
             currencyB: "",
-            valueB: 0,
+            valueB: "",
         
         }
+        // this.handleInputs = this.handleInputs.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.makeConversion = this.makeConversion.bind(this)
 
     }
 
+
+
     handleChange(e) {
-        this.setState({
-            ...this.state,
-            [e.target.name]: e.target.value,
-          })
-      }
+        this.makeConversion(e)
+    }
 
-    makeConversion(){
+    makeConversion(e){
 
-        // 1 - Pasar lo de A a dolares
-        // 2- Pasar ese resultado a la moneda B
+
 
         let localA = this.state.valueA
+        let exRateType = this.state.exRateType
+        let currencyA = this.state.currencyA
+        let currencyB = this.state.currencyB
+
+        switch (e.target.name) {
+            case "currencyA":
+                currencyA = e.target.value
+                break;
+
+            case "currencyB":
+                currencyB = e.target.value
+                break;
+
+            case "valueA":
+                localA = e.target.value
+                break;
+            
+            case "exRateType":
+                exRateType = e.target.value
+                break;
+            
+        
+
+        }
+
         let usdA 
 
         const usdarsblue = this.props.ers.usdarsblue.avg
         const usdarsofficial = this.props.ers.usdarsofficial.avg
-        const eurarsblue = this.props.ers.eurarsblue.avg
-        const eurarsofficial = this.props.ers.eurarsofficial.avg
         const btcusd = this.props.ers.btcusd.avg
         const ethusd = this.props.ers.ethusd.avg
-        const eurusd = this.props.ers.eurarsofficial / this.props.ers.usdarsofficial
+        const eurusd = this.props.ers.eurarsofficial.avg / this.props.ers.usdarsofficial.avg
 
 
+        console.log(eurusd)
 
-
-        switch (this.state.currencyA) {
+        switch (currencyA) {
             case "usd":
                 usdA = localA
                 break;
@@ -52,7 +74,7 @@ export default class Calc extends Component {
                 break;
 
             case "ars":
-                if(this.state.exRateType === "blue"){
+                if(exRateType === "blue"){
                     usdA = localA / usdarsblue
                 }else{
                     usdA = localA / usdarsofficial
@@ -70,17 +92,17 @@ export default class Calc extends Component {
 
         let localB = 0;
 
-        switch (this.state.currencyB) {
+        switch (currencyB) {
             case "usd":
                 localB = usdA
                 break;
 
-            case "euro":
+            case "eur":
                 localB = usdA / eurusd
                 break;
 
             case "ars":
-                if(this.state.exRateType === "blue"){
+                if(exRateType === "blue"){
                     localB = usdA * usdarsblue
                 }else{
                     localB = usdA * usdarsofficial
@@ -93,13 +115,19 @@ export default class Calc extends Component {
 
             case "eth":
                 localB = usdA / ethusd
+                break;
 
 
+        }
+        if(localB >= 10){
+            localB =  Math.round(localB*100) /100 
         }
 
         this.setState({
             ...this.state,
-            valueB: localB
+            valueB: localB,
+            [e.target.name]: e.target.value,
+
         })
 
     }
@@ -132,7 +160,7 @@ export default class Calc extends Component {
                         <br />
                     </div>
                     <div className="row">
-                    <div className="col-5 calc-section">
+                    <div className="col-6 calc-section">
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                         </div>
@@ -153,11 +181,8 @@ export default class Calc extends Component {
                     </div>
                 </div>
                     <br/>
-                    <div className="col-2">
-                    <button className="btn" onClick={this.makeConversion}> 	❯ </button>
 
-                    </div>
-                    <div className="col-5 calc-section">
+                    <div className="col-6 calc-section">
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                         </div>

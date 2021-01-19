@@ -10,12 +10,15 @@ export default class App extends Component{
     this.state = {
      usdarsblue: {},
      usdarsofficial: {},
+     eurarsblue: {},
+     eurarsofficial: {},
      ethusd: {},
      btcusd: {},
      btcars: {},
      usdtars: {},
      usdarsmep: {},
      usdarsliqui: {},
+
      loading: true
     }
   }
@@ -59,7 +62,7 @@ export default class App extends Component{
               <div className="col-md-10">
 
                 <Calc ers={this.state} />
-                
+
                 <div className="er-category">
                   <h2>DIVISAS ARGENTINA</h2>
                   <div className="er-box">
