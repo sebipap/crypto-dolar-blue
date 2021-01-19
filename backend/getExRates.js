@@ -29,69 +29,88 @@ const apiRequest = () => {
                 name: 'Dólar Blue',
                 bid: res[0].data.blue.value_sell,
                 ask: res[0].data.blue.value_buy,
+                avg: res[0].data.blue.value_avg,
                 priceIn: 'ARS',
                 ticker: false
             },
-
             usdarsofficial: {
                 symbol: 'usdarsofficial',
                 name: 'Dólar Oficial',
                 bid: res[0].data.oficial.value_sell,
                 ask: res[0].data.oficial.value_buy,
+                avg: res[0].data.oficial.value_avg,
                 priceIn: 'ARS',
                 ticker: false
             },
-
-            ethusd: {
-                symbol: 'ethusd',
-                name: 'Etherum',
-                bid: res[3].data.bid,
-                ask: res[3].data.ask,
-                priceIn: 'USD',
-                ticker: true
+            eurarsblue: {
+                symbol: 'eurarsblue',
+                name: 'Euro Blue',
+                bid: res[0].data.blue_euro.value_sell,
+                ask: res[0].data.blue_euro.value_buy,
+                avg: res[0].data.blue_euro.value_avg,
+                priceIn: 'ARS',
+                ticker: false
             },
-
-            btcusd: {
-                symbol: 'btcusd',
-                name: 'Bitcoin',
-                bid: res[2].data.bid,
-                ask: res[2].data.ask,
-                priceIn: 'USD',
-                ticker: true
+            eurarsofficial: {
+                symbol: 'eurarsofficial',
+                name: 'Euro Oficial',
+                bid: res[0].data.oficial_euro.value_sell,
+                ask: res[0].data.oficial_euro.value_buy,
+                avg: res[0].data.oficial_euro.value_avg,
+                priceIn: 'ARS',
+                ticker: false
             },
-
             btcars: {
                 symbol: 'btcars',
                 name: 'Bitcoin | Peso',
                 bid: res[1].data.data.compra.arsbtc,
                 ask: res[1].data.data.venta.arsbtc,
+                avg: (res[1].data.data.compra.arsbtc + res[1].data.data.venta.arsbtc) / 2,
                 priceIn: 'ARS',
                 ticker: false
             },
-        
             usdtars: {
                 symbol: 'usdtars',
                 name: 'USDT | Peso',
                 bid: res[1].data.data.compra.arsbtc/res[2].data.bid,
                 ask: res[1].data.data.venta.arsbtc/res[2].data.ask,
+                avg: (res[1].data.data.compra.arsbtc/res[2].data.bid + res[1].data.data.venta.arsbtc/res[2].data.ask) / 2,
                 priceIn: 'ARS',
                 ticker: false
             },
-            
+            btcusd: {
+                symbol: 'btcusd',
+                name: 'Bitcoin',
+                bid: res[2].data.bid,
+                ask: res[2].data.ask,
+                avg: res[2].data.last,
+                priceIn: 'USD',
+                ticker: true
+            },
+            ethusd: {
+                symbol: 'ethusd',
+                name: 'Etherum',
+                bid: res[3].data.bid,
+                ask: res[3].data.ask,
+                avg: res[3].data.last,
+                priceIn: 'USD',
+                ticker: true
+            },
             usdarsmep:{
                 symbol: 'usdarsmep',
                 name: 'Dólar Bolsa',
                 bid: 0,
                 ask: 0,
+                avg: 0,
                 priceIn: 'ARS',
                 ticker: false
             },
-            
             usdarsliqui:{
                 symbol: 'usdarsliqui',
                 name: 'Dólar C.C.L',
                 bid: 0,
                 ask: 0,
+                avg: 0,
                 priceIn: 'ARS',
                 ticker: false
             }

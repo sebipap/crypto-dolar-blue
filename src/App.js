@@ -27,6 +27,8 @@ export default class App extends Component{
         this.setState({
           usdarsblue: res.data.usdarsblue ,
           usdarsofficial: res.data.usdarsofficial ,
+          eurarsblue: res.data.eurarsblue ,
+          eurarsofficial: res.data.eurarsofficial ,
           ethusd: res.data.ethusd ,
           btcusd: res.data.btcusd ,
           btcars: res.data.btcars ,
@@ -55,12 +57,17 @@ export default class App extends Component{
                 </div>
               </nav>
               <div className="col-md-10">
+
+                <Calc ers={this.state} />
+                
                 <div className="er-category">
-                  <h2>COTIZACIONES DEL DÓLAR</h2>
+                  <h2>DIVISAS ARGENTINA</h2>
                   <div className="er-box">
                     <div className="er-container">
                       <ER coin={this.state.usdarsblue}/>
                       <ER coin={this.state.usdarsofficial}/>
+                      <ER coin={this.state.eurarsblue}/>
+                      <ER coin={this.state.eurarsofficial}/>
 
                     </div>
                   </div>
@@ -78,10 +85,6 @@ export default class App extends Component{
                   </div>
                 </div>
 
-                <div className="er-category">
-                  <h2>CALCULADORA DE CAMBIOS</h2>
-                  <Calc ers={this.state} />
-                </div>
 
               </div>
             </div>
