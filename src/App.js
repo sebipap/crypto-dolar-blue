@@ -67,14 +67,7 @@ export default class App extends Component{
               <div className="col-md-10">
 
 
-                <div className="er-category">
-                  <h2>CALCULADORA</h2>
-                  <div className="er-box">
-                    <div className="er-container">
-                      <Calc erList={this.state.erList} />
-                    </div>
-                  </div>
-                </div>
+
 
                 <div className="er-category">
                   <h2>CRIPTOMONEDAS</h2>
@@ -111,10 +104,13 @@ export default class App extends Component{
                       <ER coin={this.state.usdbrl}/>
                       <ER coin={this.state.usdmxn}/>
                       <ER coin={this.state.usdcny}/>
-
-
                     </div>
                   </div>
+                </div>
+
+                <div className="er-category">
+                  <h2>CALCULADORA</h2>
+                      <Calc erList={this.state.erList} />
                 </div>
 
 

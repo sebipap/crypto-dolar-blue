@@ -108,7 +108,7 @@ const apiRequest = () => {
             },
             {
                 symbol: 'usdgbp',
-                name: 'Libra Esterlina',
+                name: 'Libra',
                 bid: res[4].data.rates.GBP,
                 ask: res[4].data.rates.GBP,
                 avg: res[4].data.rates.GBP,
