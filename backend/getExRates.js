@@ -20,11 +20,12 @@ const apiRequest = () => {
         axios.get('https://api.bluelytics.com.ar/v2/latest'),        // [0]
         axios.get('https://api.satoshitango.com/v2/ticker') ,         // [1]
         axios.get('https://www.bitstamp.net/api/v2/ticker/btcusd/'), // [2]
-        axios.get('https://www.bitstamp.net/api/v2/ticker/ethusd/') // [3]
+        axios.get('https://www.bitstamp.net/api/v2/ticker/ethusd/'), // [3]
+        axios.get('https://api.exchangeratesapi.io/latest?base=USD') // [4]
     ])
     .then(res => {
-        return ({
-            usdarsblue: {
+        return ([
+            {
                 symbol: 'usdarsblue',
                 name: 'Dólar Blue',
                 bid: res[0].data.blue.value_sell,
@@ -33,7 +34,7 @@ const apiRequest = () => {
                 priceIn: 'ARS',
                 ticker: false
             },
-            usdarsofficial: {
+            {
                 symbol: 'usdarsofficial',
                 name: 'Dólar Oficial',
                 bid: res[0].data.oficial.value_sell,
@@ -42,7 +43,7 @@ const apiRequest = () => {
                 priceIn: 'ARS',
                 ticker: false
             },
-            eurarsblue: {
+            {
                 symbol: 'eurarsblue',
                 name: 'Euro Blue',
                 bid: res[0].data.blue_euro.value_sell,
@@ -51,7 +52,7 @@ const apiRequest = () => {
                 priceIn: 'ARS',
                 ticker: false
             },
-            eurarsofficial: {
+            {
                 symbol: 'eurarsofficial',
                 name: 'Euro Oficial',
                 bid: res[0].data.oficial_euro.value_sell,
@@ -60,7 +61,7 @@ const apiRequest = () => {
                 priceIn: 'ARS',
                 ticker: false
             },
-            btcars: {
+            {
                 symbol: 'btcars',
                 name: 'Bitcoin | Peso',
                 bid: res[1].data.data.compra.arsbtc,
@@ -69,7 +70,7 @@ const apiRequest = () => {
                 priceIn: 'ARS',
                 ticker: false
             },
-            usdtars: {
+            {
                 symbol: 'usdtars',
                 name: 'USDT | Peso',
                 bid: res[1].data.data.compra.arsbtc/res[2].data.bid,
@@ -78,7 +79,7 @@ const apiRequest = () => {
                 priceIn: 'ARS',
                 ticker: false
             },
-            btcusd: {
+            {
                 symbol: 'btcusd',
                 name: 'Bitcoin',
                 bid: res[2].data.bid,
@@ -87,7 +88,7 @@ const apiRequest = () => {
                 priceIn: 'USD',
                 ticker: true
             },
-            ethusd: {
+            {
                 symbol: 'ethusd',
                 name: 'Etherum',
                 bid: res[3].data.bid,
@@ -96,25 +97,55 @@ const apiRequest = () => {
                 priceIn: 'USD',
                 ticker: true
             },
-            usdarsmep:{
-                symbol: 'usdarsmep',
-                name: 'Dólar Bolsa',
-                bid: 0,
-                ask: 0,
-                avg: 0,
-                priceIn: 'ARS',
+            {
+                symbol: 'usdeur',
+                name: 'Euro',
+                bid: res[4].data.rates.EUR,
+                ask: res[4].data.rates.EUR,
+                avg: res[4].data.rates.EUR,
+                priceIn: 'USD',
                 ticker: false
             },
-            usdarsliqui:{
-                symbol: 'usdarsliqui',
-                name: 'Dólar C.C.L',
-                bid: 0,
-                ask: 0,
-                avg: 0,
-                priceIn: 'ARS',
+            {
+                symbol: 'usdgbp',
+                name: 'Libra Esterlina',
+                bid: res[4].data.rates.GBP,
+                ask: res[4].data.rates.GBP,
+                avg: res[4].data.rates.GBP,
+                priceIn: 'USD',
+                ticker: false
+            },
+
+            {
+                symbol: 'usdbrl',
+                name: 'Real',
+                bid: res[4].data.rates.BRL,
+                ask: res[4].data.rates.BRL,
+                avg: res[4].data.rates.BRL,
+                priceIn: 'BRL',
+                ticker: false
+            },
+            {
+                symbol: 'usdmxn',
+                name: 'Peso Mexicano',
+                bid: res[4].data.rates.MXN,
+                ask: res[4].data.rates.MXN,
+                avg: res[4].data.rates.MXN,
+                priceIn: 'BRL',
+                ticker: false
+            },
+
+            {
+                symbol: 'usdcny',
+                name: 'Yuan Chino',
+                bid: res[4].data.rates.BRL,
+                ask: res[4].data.rates.BRL,
+                avg: res[4].data.rates.BRL,
+                priceIn: 'BRL',
                 ticker: false
             }
-        })
+        ]
+        )
     })
 .then(er => writeJSON(er))
 
