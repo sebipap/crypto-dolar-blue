@@ -103,7 +103,7 @@ const apiRequest = () => {
                 bid: res[4].data.rates.EUR,
                 ask: res[4].data.rates.EUR,
                 avg: res[4].data.rates.EUR,
-                priceIn: 'USD',
+                priceIn: 'EUR',
                 ticker: false
             },
             {
@@ -112,7 +112,7 @@ const apiRequest = () => {
                 bid: res[4].data.rates.GBP,
                 ask: res[4].data.rates.GBP,
                 avg: res[4].data.rates.GBP,
-                priceIn: 'USD',
+                priceIn: 'GBP',
                 ticker: false
             },
 
@@ -127,11 +127,11 @@ const apiRequest = () => {
             },
             {
                 symbol: 'usdmxn',
-                name: 'Peso Mexicano',
+                name: 'Peso Mex.',
                 bid: res[4].data.rates.MXN,
                 ask: res[4].data.rates.MXN,
                 avg: res[4].data.rates.MXN,
-                priceIn: 'BRL',
+                priceIn: 'MXN',
                 ticker: false
             },
 
@@ -141,7 +141,7 @@ const apiRequest = () => {
                 bid: res[4].data.rates.BRL,
                 ask: res[4].data.rates.BRL,
                 avg: res[4].data.rates.BRL,
-                priceIn: 'BRL',
+                priceIn: 'CNY',
                 ticker: false
             }
         ]

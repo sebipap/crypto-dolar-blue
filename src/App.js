@@ -8,16 +8,20 @@ export default class App extends Component{
   constructor(){
     super();
     this.state = {
-     usdarsblue: {},
-     usdarsofficial: {},
-     eurarsblue: {},
-     eurarsofficial: {},
-     ethusd: {},
-     btcusd: {},
-     btcars: {},
-     usdtars: {},
-     usdarsmep: {},
-     usdarsliqui: {},
+      erList: [],
+      usdarsblue: {},
+      usdarsofficial: {},
+      eurarsblue: {},
+      eurarsofficial: {},
+      btcars: {},
+      usdtars: {},
+      btcusd: {},
+      ethusd: {},
+      usdeur: {},
+      usdgbp: {},
+      usdbrl: {},
+      usdmxn: {},
+      usdcny: {},
 
      loading: true
     }
@@ -25,21 +29,22 @@ export default class App extends Component{
 
   componentDidMount(){
 
-    axios.get('/latest')
+    axios.get('/latest') 
     .then( res => {
+        let coins = res.data
+
+        coins.map( coin => {
+          this.setState({
+            ...this.state,
+            [coin.symbol]: coin
+          })
+        } )
         this.setState({
-          usdarsblue: res.data.usdarsblue ,
-          usdarsofficial: res.data.usdarsofficial ,
-          eurarsblue: res.data.eurarsblue ,
-          eurarsofficial: res.data.eurarsofficial ,
-          ethusd: res.data.ethusd ,
-          btcusd: res.data.btcusd ,
-          btcars: res.data.btcars ,
-          usdtars: res.data.usdtars ,
-          usdarsmep: res.data.usdarsmep ,
-          usdarsliqui: res.data.usdarsliqui ,
+          ...this.state,
+          erList: coins,
           loading: false
-        })    
+        })
+
     })
     .catch( () => console.log("error"))
 }
@@ -61,7 +66,27 @@ export default class App extends Component{
               </nav>
               <div className="col-md-10">
 
-                <Calc ers={this.state} />
+
+                <div className="er-category">
+                  <h2>CALCULADORA</h2>
+                  <div className="er-box">
+                    <div className="er-container">
+                      <Calc erList={this.state.erList} />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="er-category">
+                  <h2>CRIPTOMONEDAS</h2>
+                  <div className="er-box">
+                    <div className="er-container">
+                      <ER coin={this.state.btcusd}/>
+                      <ER coin={this.state.ethusd}/>
+                      <ER coin={this.state.usdtars}/>
+                      <ER coin={this.state.btcars}/>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="er-category">
                   <h2>DIVISAS ARGENTINA</h2>
@@ -72,18 +97,22 @@ export default class App extends Component{
                       <ER coin={this.state.eurarsblue}/>
                       <ER coin={this.state.eurarsofficial}/>
 
+
                     </div>
                   </div>
                 </div>
 
                 <div className="er-category">
-                  <h2>COTIZACIONES DE CRIPTOMONEDAS</h2>
+                  <h2>DIVISAS EN DÓLARES</h2>
                   <div className="er-box">
                     <div className="er-container">
-                      <ER coin={this.state.btcusd}/>
-                      <ER coin={this.state.ethusd}/>
-                      <ER coin={this.state.usdtars}/>
-                      <ER coin={this.state.btcars}/>
+                      <ER coin={this.state.usdeur}/>
+                      <ER coin={this.state.usdgbp}/>
+                      <ER coin={this.state.usdbrl}/>
+                      <ER coin={this.state.usdmxn}/>
+                      <ER coin={this.state.usdcny}/>
+
+
                     </div>
                   </div>
                 </div>

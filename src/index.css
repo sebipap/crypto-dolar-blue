@@ -115,8 +115,7 @@ border: 3px solid rgb(71, 71, 71);
   border-color: rgb(43, 152, 255);
 }
 
-#usdarsblue{  margin: 10px;
-
+#usdarsblue{
   color: rgb(56, 199, 255)
 }
 
@@ -132,15 +131,24 @@ border: 3px solid rgb(71, 71, 71);
   border: 3px solid rgb(71, 71, 71);
   border-radius: 25px;
   margin: 20px;
-  padding: 25px;
+  padding: 15px;
 }
 
 .calc-section{
-  color: black;
-  /* background-color: rgb(199, 197, 197); */
-  box-shadow:  0 0 20px 0px #00000069;
-  padding: 12px;
+  /* box-shadow:  0 0 20px 0px #00000069; */
+  border: solid rgb(26, 26, 26) 1px;
+  padding: 10px;
+  margin: auto;
+  margin: 5px;
   border-radius: 10px;
+  color: white;
+}
+
+.calc-head{
+  border-bottom: solid rgb(26, 26, 26) 1px;
+  padding: 10px;
+  margin: auto;
+  margin: 5px;
   color: white;
 }
 

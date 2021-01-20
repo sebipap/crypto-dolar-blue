@@ -59,8 +59,7 @@ export default class ER extends Component{
     }
 
     render(){
-        console.log("IN ER: ")
-        console.log(JSON.stringify(this.props.coin))
+
         return(
             <div className="er" id={this.state.id}>
                 <h4 id={this.props.coin.symbol}>{this.props.coin.name}</h4>
