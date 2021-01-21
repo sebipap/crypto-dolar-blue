@@ -27,8 +27,7 @@ export default class App extends Component{
     }
   }
 
-  componentDidMount(){
-
+  componentDidMount(){  
     axios.get('/latest') 
     .then( res => {
         let coins = res.data
@@ -53,7 +52,9 @@ export default class App extends Component{
   render(){
     if(this.state.loading){
       return(
-      <h1>Loading...</h1>
+        <div class="spinner-grow spinner-border m-5 text-light" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
       )
     }else{
       return(
@@ -82,7 +83,7 @@ export default class App extends Component{
                 </div>
 
                 <div className="er-category">
-                  <h2>DIVISAS ARGENTINA</h2>
+                  <h2>CAMBIO ARGENTINA</h2>
                   <div className="er-box">
                     <div className="er-container">
                       <ER coin={this.state.usdarsblue}/>
@@ -96,7 +97,7 @@ export default class App extends Component{
                 </div>
 
                 <div className="er-category">
-                  <h2>DIVISAS EN DÓLARES</h2>
+                  <h2>DOLAR EN OTROS PAÍSES</h2>
                   <div className="er-box">
                     <div className="er-container">
                       <ER coin={this.state.usdeur}/>

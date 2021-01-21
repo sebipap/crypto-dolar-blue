@@ -107,13 +107,13 @@ export default class Calc extends Component {
 
                         {this.state.exRateType === 'blue' ?
                             <>
-                                <button type="button" name="exRateType" value="official" onClick={this.handleChange} className="btn text-muted">Oficial</button>
-                                <button type="button" name="exRateType" value="blue" onClick={this.handleChange} className="btn btn-primary">Blue</button>
+                                <button type="button" name="exRateType" value="official" onClick={this.handleChange} className="btn btn-secondary">Oficial</button>
+                                <button type="button" name="exRateType" value="blue" onClick={this.handleChange} className="btn btn-primary">Blue ☑️</button>
                             </>
                             :
                             <>
-                                <button type="button" name="exRateType" value="official" onClick={this.handleChange} className="btn btn-success">Oficial</button>
-                                <button type="button" name="exRateType" value="blue" onClick={this.handleChange} className="btn text-muted">Blue</button>
+                                <button type="button" name="exRateType" value="official" onClick={this.handleChange} className="btn btn-success">Oficial ✅</button>
+                                <button type="button" name="exRateType" value="blue" onClick={this.handleChange} className="btn btn-secondary">Blue</button>
                             </>
                         }
                     </div>

@@ -138,9 +138,9 @@ const apiRequest = () => {
             {
                 symbol: 'usdcny',
                 name: 'Yuan Chino',
-                bid: res[4].data.rates.BRL,
-                ask: res[4].data.rates.BRL,
-                avg: res[4].data.rates.BRL,
+                bid: res[4].data.rates.CNY,
+                ask: res[4].data.rates.CNY,
+                avg: res[4].data.rates.CNY,
                 priceIn: 'CNY',
                 ticker: false
             }

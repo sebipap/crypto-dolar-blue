@@ -63,13 +63,13 @@ export default class ER extends Component{
         return(
             <div className="er" id={this.state.id}>
                 <h4 id={this.props.coin.symbol}>{this.props.coin.name}</h4>
-                Compra
+                Venta
                 <div className="bid">
                     <div className="currency">{this.props.coin.priceIn}</div>
                     <FormattedPrice price={this.state.bid} size="big" />
                 </div>
                 <hr className="dashed"/>
-                Venta
+                Compra
                 <div className="ask">
                     <div className="currency">{this.props.coin.priceIn}</div> 
                     <FormattedPrice price={this.props.coin.ask} size="small"/>
