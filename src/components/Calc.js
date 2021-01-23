@@ -13,17 +13,17 @@ export default class Calc extends Component {
         }
         // this.handleInputs = this.handleInputs.bind(this)
         this.handleChange = this.handleChange.bind(this)
-        this.makeConvexRatession = this.makeConvexRatession.bind(this)
+        this.makeConversion = this.makeConversion.bind(this)
 
     }
 
 
 
     handleChange(e) {
-        this.makeConvexRatession(e)
+        this.makeConversion(e)
     }
 
-    makeConvexRatession(e){
+    makeConversion(e){
 
         let localA = this.state.valueA
         let exRateType = this.state.exRateType
@@ -66,17 +66,15 @@ export default class Calc extends Component {
         exRates.usdbtc = 1 / exRates.btcusd
         exRates.usdeth = 1 / exRates.ethusd
 
-        console.log(exRates)
-
         let exRateNameA = "usd" + currencyA
         if(currencyA==="ars"){
-            exRateNameA=exRateNameA+this.state.exRateType 
+            exRateNameA=exRateNameA + exRateType 
         }
 
 
         let exRateNameB = "usd" + currencyB
         if(currencyB==="ars"){
-            exRateNameB=exRateNameB+this.state.exRateType 
+            exRateNameB=exRateNameB + exRateType
         }
         
         let localB = ( localA / exRates[exRateNameA]) * exRates[exRateNameB];
@@ -108,11 +106,11 @@ export default class Calc extends Component {
                         {this.state.exRateType === 'blue' ?
                             <>
                                 <button type="button" name="exRateType" value="official" onClick={this.handleChange} className="btn btn-secondary">Oficial</button>
-                                <button type="button" name="exRateType" value="blue" onClick={this.handleChange} className="btn btn-primary">Blue ☑️</button>
+                                <button type="button" name="exRateType" className="btn btn-primary">Blue ☑️</button>
                             </>
                             :
                             <>
-                                <button type="button" name="exRateType" value="official" onClick={this.handleChange} className="btn btn-success">Oficial ✅</button>
+                                <button type="button" name="exRateType" className="btn btn-success">Oficial ✅</button>
                                 <button type="button" name="exRateType" value="blue" onClick={this.handleChange} className="btn btn-secondary">Blue</button>
                             </>
                         }
