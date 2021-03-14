@@ -21,7 +21,9 @@ const apiRequest = () => {
         axios.get('https://api.satoshitango.com/v2/ticker') ,         // [1]
         axios.get('https://www.bitstamp.net/api/v2/ticker/btcusd/'), // [2]
         axios.get('https://www.bitstamp.net/api/v2/ticker/ethusd/'), // [3]
-        axios.get('https://api.exchangeratesapi.io/latest?base=USD') // [4]
+        axios.get('https://api.exchangeratesapi.io/latest?base=USD'), // [4]
+        axios.get('https://www.dolarsi.com/api/api.php?type=valoresprincipales') // [5]
+
     ])
     .then(res => {
         return ([
@@ -43,6 +45,36 @@ const apiRequest = () => {
                 priceIn: 'ARS',
                 ticker: false
             },
+
+            {
+                symbol: 'usdarsturista',
+                name: 'Dólar Turista',
+                bid: res[5].data[6].casa.venta,
+                ask: "-",
+                avg:  "-",
+                priceIn: 'ARS',
+                ticker: false
+            },
+
+            {
+                symbol: 'usdarsccl',
+                name: 'Dólar CCL',
+                bid: res[5].data[3].casa.venta,
+                ask: res[5].data[3].casa.compra,
+                avg: (res[5].data[3].casa.compra, + res[5].data[3].casa.venta) / 2,
+                priceIn: 'ARS',
+                ticker: false
+            },
+            {
+                symbol: 'usdarsmep',
+                name: 'Dólar MEP',
+                bid: res[5].data[4].casa.venta,
+                ask: res[5].data[4].casa.compra,
+                avg: (res[5].data[4].casa.compra, + res[5].data[4].casa.venta) / 2,
+                priceIn: 'ARS',
+                ticker: false
+            },
+            
             {
                 symbol: 'eurarsblue',
                 name: 'Euro Blue',
