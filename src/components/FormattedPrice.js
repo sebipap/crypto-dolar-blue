@@ -8,7 +8,8 @@ let m = 0;
 let n = 0;
 let c = 0;
 let big = "";
-let small = "";import React from 'react'
+let small = "";
+import React from 'react'
 import {Text, View, StyleSheet} from 'react-native';
 
 export default function FormattedPrice(props) {
