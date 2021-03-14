@@ -13,6 +13,9 @@ const writeJSON = obj => {
     })
 }
 
+const num = str => parseFloat(str.replace(",", "."))
+
+
 
 const apiRequest = () => {
 
@@ -49,7 +52,7 @@ const apiRequest = () => {
             {
                 symbol: 'usdarsturista',
                 name: 'Dólar Turista',
-                bid: res[5].data[6].casa.venta,
+                bid: num(res[5].data[6].casa.venta),
                 ask: "-",
                 avg:  "-",
                 priceIn: 'ARS',
@@ -59,18 +62,18 @@ const apiRequest = () => {
             {
                 symbol: 'usdarsccl',
                 name: 'Dólar CCL',
-                bid: res[5].data[3].casa.venta,
-                ask: res[5].data[3].casa.compra,
-                avg: (res[5].data[3].casa.compra, + res[5].data[3].casa.venta) / 2,
+                bid: num(res[5].data[3].casa.venta),
+                ask: num(res[5].data[3].casa.compra),
+                avg: (num(res[5].data[3].casa.compra), + num(res[5].data[3].casa.venta)) / 2,
                 priceIn: 'ARS',
                 ticker: false
             },
             {
                 symbol: 'usdarsmep',
                 name: 'Dólar MEP',
-                bid: res[5].data[4].casa.venta,
-                ask: res[5].data[4].casa.compra,
-                avg: (res[5].data[4].casa.compra, + res[5].data[4].casa.venta) / 2,
+                bid: num(res[5].data[4].casa.venta),
+                ask: num(res[5].data[4].casa.compra),
+                avg: (num(res[5].data[4].casa.compra), + num(res[5].data[4].casa.venta)) / 2,
                 priceIn: 'ARS',
                 ticker: false
             },

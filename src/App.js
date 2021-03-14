@@ -11,6 +11,9 @@ export default class App extends Component{
       erList: [],
       usdarsblue: {},
       usdarsofficial: {},
+      usdarsturista: {},
+      usdarsmep: {},
+      usdarsccl: {},
       eurarsblue: {},
       eurarsofficial: {},
       btcars: {},
@@ -50,6 +53,9 @@ export default class App extends Component{
 
 
   render(){
+
+    console.log(this.state.usdarsturista)
+
     if(this.state.loading){
       return(
         <div class="spinner-grow spinner-border m-5 text-light" role="status">
@@ -88,6 +94,11 @@ export default class App extends Component{
                     <div className="er-container">
                       <ER coin={this.state.usdarsblue}/>
                       <ER coin={this.state.usdarsofficial}/>
+
+                      <ER coin={this.state.usdarsmep}/>
+                      <ER coin={this.state.usdarsturista}/>
+                      <ER coin={this.state.usdarsccl}/>
+
                       <ER coin={this.state.eurarsblue}/>
                       <ER coin={this.state.eurarsofficial}/>
 

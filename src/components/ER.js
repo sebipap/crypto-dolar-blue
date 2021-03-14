@@ -50,7 +50,7 @@ export default class ER extends Component{
             id: "",
             ticker: this.props.coin.ticker
         })
-        if(this.state.ticker == true){
+        if(this.state.ticker === true){
             this.updatePrice()
             let seconds = 3 
             let the_interval = seconds* 1000
@@ -59,7 +59,6 @@ export default class ER extends Component{
     }
 
     render(){
-
         return(
             <div className="er" id={this.state.id}>
                 <h4 id={this.props.coin.symbol}>{this.props.coin.name}</h4>
